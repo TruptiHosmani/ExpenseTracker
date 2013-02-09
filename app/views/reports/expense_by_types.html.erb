@@ -1,0 +1,41 @@
+<% if @expenses%>
+<h1>Expense by types</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>Expense Type</th>
+    <th>Total Amount</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @expenses.each do |expense| -%>
+  <tr>
+    <td><%= expense.expense_type_name %></td>
+    <td><%= expense.tot_amount %></td>
+  </tr>
+  <% end -%>
+  </tbody>
+</table>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript">
+     google.load("visualization", "1", {packages:["corechart"]});
+     google.setOnLoadCallback(drawChart);
+     function drawChart() {
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Expense Type');
+       data.addColumn('number', 'Amount');
+       <% @expenses.each do |expense| -%>
+       data.addRows([["<%= expense.expense_type_name %>" ,<%= expense.tot_amount %>]])  ;
+       <% end %>
+
+        var options = {
+         title: 'Expense by types'
+       };
+
+       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+       chart.draw(data, options);
+     }
+   </script>
+
+   <div id="chart_div" style="width: 900px; height: 500px;"></div>
+<% end %>

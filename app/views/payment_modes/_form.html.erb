@@ -1,0 +1,18 @@
+
+<div class="clearfix">
+   <%= f.label :name, t("activerecord.attributes.payment_mode.name", :default => "Name"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :name, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :max_allowed, t("activerecord.attributes.payment_mode.max_allowed", :default => "Max allowed"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :max_allowed, :class => 'text_field' %>
+  </div>
+</div>
+<div class="form-actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", payment_modes_path %>
+</div>

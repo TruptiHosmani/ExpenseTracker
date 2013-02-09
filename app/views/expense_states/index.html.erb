@@ -1,0 +1,30 @@
+<h1>Expense States</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.expense_state.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @expense_states.each do |expense_state| -%>
+   <tr>
+    <td><%= expense_state.id %></td>
+        <td><%= link_to expense_state.name, expense_state_path(expense_state) %>
+    </td>
+        <td><%= expense_state.created_at %></td>
+    <td>
+      <%= link_to "Show", expense_state_path(expense_state) %>
+      <%= link_to "Edit", edit_expense_state_path(expense_state) %>
+      <%= link_to "Destroy", expense_state_path(expense_state), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_expense_state_path, :class => 'btn btn-primary' %>

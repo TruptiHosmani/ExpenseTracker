@@ -1,0 +1,30 @@
+<h1>Departments</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.department.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @departments.each do |department| -%>
+   <tr>
+    <td><%= department.id %></td>
+        <td><%= link_to department.name, department_path(department) %>
+    </td>
+        <td><%= department.created_at %></td>
+    <td>
+      <%= link_to "Show", department_path(department) %>
+      <%= link_to "Edit", edit_department_path(department) %>
+      <%= link_to "Destroy", department_path(department), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_department_path, :class => 'btn btn-primary' %>

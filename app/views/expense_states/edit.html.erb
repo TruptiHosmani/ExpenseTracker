@@ -1,0 +1,4 @@
+<%= form_for @expense_state, :url => expense_state_path(@expense_state), :html => { :class => "edit_expense_state", :id => "edit_expense_state" } do |f| -%>
+  <input name="_method" type="hidden" value="put" />
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>

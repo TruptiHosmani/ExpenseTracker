@@ -1,0 +1,3 @@
+<%= form_for @job_title, :url => job_titles_path, :html => { :class => :form } do |f| -%>
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>

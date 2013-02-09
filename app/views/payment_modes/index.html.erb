@@ -1,0 +1,30 @@
+<h1>Payment Modes</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.payment_mode.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @payment_modes.each do |payment_mode| -%>
+   <tr>
+    <td><%= payment_mode.id %></td>
+        <td><%= link_to payment_mode.name, payment_mode_path(payment_mode) %>
+    </td>
+        <td><%= payment_mode.created_at %></td>
+    <td>
+      <%= link_to "Show", payment_mode_path(payment_mode) %>
+      <%= link_to "Edit", edit_payment_mode_path(payment_mode) %>
+      <%= link_to "Destroy", payment_mode_path(payment_mode), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_payment_mode_path, :class => 'btn btn-primary' %>

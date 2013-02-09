@@ -1,0 +1,54 @@
+
+<div class="clearfix">
+   <%= f.label :date, "Expense Date", :class => :label %>
+  <div class="input">
+    <%= f.text_field :date, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :description, t("activerecord.attributes.expense.description", :default => "Description"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :description, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :amount, t("activerecord.attributes.expense.amount", :default => "Amount"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :amount, :class => 'text_field' %>
+  </div>
+</div>
+
+
+<div class="clearfix">
+   <%= f.label :expense_type_id, t("activerecord.attributes.expense.expense_type_id", :default => "Expense type"), :class => :label %>
+  <div class="input">
+    <%= f.collection_select :expense_type_id, @expense_types, :id, :name, :prompt => "Select an expense type" %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :payment_mode_id, t("activerecord.attributes.expense.payment_mode_id", :default => "Payment mode"), :class => :label %>
+  <div class="input">
+    <%= f.collection_select :payment_mode_id, @payment_modes, :id, :name, :prompt => "Select a payment mode" %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :vendor_id, t("activerecord.attributes.expense.vendor_id", :default => "Vendor"), :class => :label %>
+  <div class="input">
+    <%= f.collection_select :vendor_id, @vendors, :id, :name, :prompt => "Select a vendor" %>
+  </div>
+</div>
+
+<div class="clearfix">
+       <%= f.label :receipt,  t("activerecord.attributes.expense.receipt", :default => "Receipt File"), :class => :label %>
+  <div class="input">
+      <%= f.file_field :receipt %>  </div>
+</div>
+
+<div class="form-actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", expenses_path %>
+</div>

@@ -1,0 +1,16 @@
+<h1>Reports</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>Report Name</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr><td><%= link_to "Top Spenders", :controller => "reports", :action => "top_spenders" %></td> </tr>
+  <tr><td><%= link_to "Top Vendors", :controller => "reports", :action => "top_vendors" %></td></tr>
+  <tr><td><%= link_to "Top Expense Types", :controller => "reports", :action => "expense_by_types" %></td></tr>
+  <tr><td><%= link_to "Department Expenses", :controller => "reports", :action => "departments" %></td> </tr>
+
+  </tbody>
+</table>

@@ -1,0 +1,77 @@
+<%= form_tag("/expenses/index", :method => "post") do %>
+  <div class="form_row">
+      <label for="type">Select the Expense State:</label>
+      <% [ 'All', 'Approved', 'Declined', 'Pending' ].each do |type| %>
+        <%= radio_button_tag 'type', type, type == type %>
+        <%= type.humanize %>
+      <% end %>
+
+      <%= label_tag(:start_date, "Start Date :") %>
+      <%= text_field_tag(:start_date) %>
+
+      <%= label_tag(:end_date, "End Date :") %>
+      <%= text_field_tag(:end_date) %>
+  </div>
+  <%= submit_tag("Search") %>
+<% end %>
+<% if @expenses %>
+<h1>Expenses:  <%= params[:type]%>      </h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+    <th>Date</th>
+    <th>Employee</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Expense Type</th>
+    <th>Payment Mode</th>
+    <th>Vendor</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @expenses.each do |expense| -%>
+    <tr>
+      <td><%= link_to expense.id, expense_path(expense) %></td>
+      <td><%= expense.date %></td>
+      <td><%= expense.employee.name %></td>
+      <td><%= expense.description %></td>
+      <td><%= expense.amount %></td>
+      <td><%= expense.expense_type.name %></td>
+      <td><%= expense.payment_mode.name %></td>
+      <td><%= expense.vendor.name %></td>
+      <% if expense.expense_state %>
+        <td><%= expense.expense_state.name %></td>
+       <%end %>
+    </tr>
+  <% end -%>
+  </tbody>
+</table>
+
+<%= link_to "New", new_expense_path, :class => 'btn btn-primary' %>
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Expense Type Name');
+        data.addColumn('number', 'Amount');
+        <% @expenses.each do |expense| %>
+        data.addRows([["<%= expense.expense_type.name %>" ,<%= expense.amount %>]])  ;
+      <% end %>
+
+        //data.addRows(JSON.parse("<%= @graph_data.to_json %>"));
+         var options = {
+          title: 'My Expense'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+<% end %>

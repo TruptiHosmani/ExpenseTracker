@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Your Expense has been Declined, <%= @expense.employee.name%></h1>
+
+    <h2>
+    <%= @expense.employee.email %>.<br/>
+    Details :
+    Expense Id  : <%= @expense.id  %><br/>
+    Expense Type : <%=@expense.expense_type.name %><br/>
+    Expense Amount :<%=@expense.amount%> <br/>
+    Expense Status changed to  : Declined   <br/>
+     </h2>
+    <p>Thanks for joining ExpenseTracker and have a great day!</p>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Your Expense less than max expensable has been approved but the rest of the amount is pending, <%= @expense.employee.name%></h1>
+    <p>
+
+      <%= @expense.employee.email %>.<br/>
+    </p>
+    <h2>
+    Details :
+    Expense Id : <%= @expense.id  %><br/>
+    Expense Type : <%=@expense.expense_type.name %><br/>
+    Expense Filed Amount : <%= @init_amount %> <br/>
+    Expense Amount left :<%=@expense.amount%><br/>
+    Expense Status remains  : Pending <br/>
+     </h2>
+    <p>Thanks for joining ExpenseTracker and have a great day!</p>
+  </body>
+</html>

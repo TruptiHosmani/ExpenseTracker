@@ -1,0 +1,4 @@
+<%= form_for @expense, :url => expense_path(@expense), :html => { :multipart => true, :class => "edit_expense", :id => "edit_expense" } do |f| -%>
+  <input name="_method" type="hidden" value="put" />
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>

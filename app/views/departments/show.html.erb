@@ -1,0 +1,15 @@
+
+<label class="label"><%= t("activerecord.attributes.department.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
+<p><%= @department.name %></p>
+
+<label class="label"><%= t("activerecord.attributes.department.no_of_employees", :default => t("activerecord.labels.no_of_employees", :default => "No of employees")) %>:</label>
+<p><%= @department.no_of_employees %></p>
+
+<label class="label"><%= t("activerecord.attributes.department.budget", :default => t("activerecord.labels.budget", :default => "Budget")) %>:</label>
+<p><%= @department.budget %></p>
+
+<div class="form-actions">
+<%= link_to "Back", departments_path, :class => 'btn'  %>
+<%= link_to "Edit", edit_department_path(@department), :class => 'btn' %>
+<%= link_to "Delete", department_path(@department), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+</div>

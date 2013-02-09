@@ -1,0 +1,12 @@
+
+<label class="label"><%= t("activerecord.attributes.payment_mode.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
+<p><%= @payment_mode.name %></p>
+
+<label class="label"><%= t("activerecord.attributes.payment_mode.max_allowed", :default => t("activerecord.labels.max_allowed", :default => "Max allowed")) %>:</label>
+<p><%= @payment_mode.max_allowed %></p>
+
+<div class="form-actions">
+<%= link_to "Back", payment_modes_path, :class => 'btn'  %>
+<%= link_to "Edit", edit_payment_mode_path(@payment_mode), :class => 'btn' %>
+<%= link_to "Delete", payment_mode_path(@payment_mode), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+</div>

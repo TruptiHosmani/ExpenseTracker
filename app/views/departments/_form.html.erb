@@ -1,0 +1,25 @@
+
+<div class="clearfix">
+   <%= f.label :name, t("activerecord.attributes.department.name", :default => "Name"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :name, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :no_of_employees, t("activerecord.attributes.department.no_of_employees", :default => "No of employees"), :class => :label %>
+  <div class="input">
+    <%= f.number_field :no_of_employees, :class => 'number_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :budget, t("activerecord.attributes.department.budget", :default => "Budget"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :budget, :class => 'text_field' %>
+  </div>
+</div>
+<div class="form-actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", departments_path %>
+</div>

@@ -1,0 +1,69 @@
+<h1>Subordinate Expenses</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>Employee ID</th>
+    <th>Expense ID</th>
+    <th>Date</th>
+    <th>Employee</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Expense Type</th>
+    <th>Payment Mode</th>
+    <th>Vendor</th>
+    <th>Status</th>
+    <th>Receipt</th>
+    <th> Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @expenses.each do |employee_id, expenses| -%>
+    <% expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.employee_id %></td>
+        <td><%= expense.id %></td>
+        <td><%= expense.date %></td>
+        <td><%= expense.employee.name %></td>
+        <td><%= expense.description %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.expense_type.name %></td>
+        <td><%= expense.payment_mode.name %></td>
+        <td><%= expense.vendor.name %></td>
+        <% if expense.expense_state %>
+          <td><%= expense.expense_state.name %></td>
+         <%end %>
+        <td><a href="/expenses/<%= expense.id %>/show" >view receipt</a></td>
+        <td>
+           <a href="/expenses/<%= expense.id %>/approve">Approve</a> /
+           <a href="/expenses/<%= expense.id %>/decline">Decline</a>
+        </td>
+      </tr>
+    <% end %>
+  <% end -%>
+  </tbody>
+</table>
+<% if @data %>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript">
+     google.load("visualization", "1", {packages:["corechart"]});
+     google.setOnLoadCallback(drawChart);
+     function drawChart() {
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Employee Name');
+       data.addColumn('number', 'Amount');
+     <% @data.each do |data| -%>
+       data.addRows([["<%= data.emp_name %>" ,<%= data.tot_amount %>]])  ;
+     <% end %>
+
+       //data.addRows(JSON.parse("<%= @graph_data.to_json %>"));
+        var options = {
+         title: 'Expenses of the subordinates in percentage'
+       };
+
+       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+       chart.draw(data, options);
+     }
+   </script>
+
+   <div id="chart_div" style="width: 900px; height: 500px;"></div>
+<% end %>

@@ -1,0 +1,4 @@
+<%= form_for @job_title, :url => job_title_path(@job_title), :html => { :class => "edit_job_title", :id => "edit_job_title" } do |f| -%>
+  <input name="_method" type="hidden" value="put" />
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>

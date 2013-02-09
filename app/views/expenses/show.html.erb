@@ -1,0 +1,29 @@
+
+<label class="label"><%= t("activerecord.attributes.expense.date", :default => t("activerecord.labels.date", :default => "Date")) %>:</label>
+<p><%= @expense.date %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.description", :default => t("activerecord.labels.description", :default => "Description")) %>:</label>
+<p><%= @expense.description %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.amount", :default => t("activerecord.labels.amount", :default => "Amount")) %>:</label>
+<p><%= @expense.amount %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.employee_id", :default => t("activerecord.labels.employee_id", :default => "Employee")) %>:</label>
+<p><%= @expense.employee_id %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.expense_type_id", :default => t("activerecord.labels.expense_type_id", :default => "Expense type")) %>:</label>
+<p><%= @expense.expense_type_id %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.payment_mode_id", :default => t("activerecord.labels.payment_mode_id", :default => "Payment mode")) %>:</label>
+<p><%= @expense.payment_mode_id %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.vendor_id", :default => t("activerecord.labels.vendor_id", :default => "Vendor")) %>:</label>
+<p><%= @expense.vendor_id %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense.receipt", :default => t("activerecord.labels.receipt", :default => "Receipt")) %>:</label>
+<p><%= @expense.receipt %></p>
+<%= image_tag @expense.receipt.url %>
+
+<div class="form-actions">
+<%= link_to "Back", expenses_path, :class => 'btn'  %>
+</div>

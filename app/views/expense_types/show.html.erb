@@ -1,0 +1,12 @@
+
+<label class="label"><%= t("activerecord.attributes.expense_type.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
+<p><%= @expense_type.name %></p>
+
+<label class="label"><%= t("activerecord.attributes.expense_type.max_expensable", :default => t("activerecord.labels.max_expensable", :default => "Max expensable")) %>:</label>
+<p><%= @expense_type.max_expensable %></p>
+
+<div class="form-actions">
+<%= link_to "Back", expense_types_path, :class => 'btn'  %>
+<%= link_to "Edit", edit_expense_type_path(@expense_type), :class => 'btn' %>
+<%= link_to "Delete", expense_type_path(@expense_type), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+</div>

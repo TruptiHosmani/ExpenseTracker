@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Your Expense has been Approved, <%= @expense.employee.name%></h1>
+    <p>
+
+      <%= @expense.employee.email %>.<br/>
+    </p>
+    <h2>
+    Details :
+    Expense Id : <%= @expense.id  %><br/>
+    Expense Type : <%=@expense.expense_type.name %><br/>
+    Expense Amount :<%=@expense.amount%><br/>
+    Expense Status changed to : Approved <br/>
+     </h2>
+    <p>Thanks for joining ExpenseTracker and have a great day!</p>
+  </body>
+</html>

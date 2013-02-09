@@ -1,0 +1,16 @@
+Welcome to ExpenseTracker.com, <%= @expense.employee.name %>
+===============================================
+
+Dear <%= @expense.employee.name %>.
+
+
+Your Expense has been Approved and for maximum expensible for a month and is still pending !
+
+Deatils :
+    Expense Id <%= @expense.id  %>,
+    Expense Type <%=@expense.expense_type.name %>,
+    Expense Filed Amount : <%= @init_amount %>
+    Expense Amount left :<%=@expense.amount%>
+    Expense Status remains  : Pending
+
+Thanks for joining and have a great day!
