@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_filter :authenticate_employee!, :except=> [:index]
-  before_filter :only_for_managers
+  before_filter :only_for_managers, :only=> :review
 
   # GET /expenses
   # GET /expenses.json

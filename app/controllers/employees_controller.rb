@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   before_filter :authenticate_employee!, :except=> [:index, :show]
-
+  before_filter :only_managers
   def new
     @employee = Employee.new
     @departments = Department.all
