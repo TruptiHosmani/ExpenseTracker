@@ -42,7 +42,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
 
     if @employee.update_attributes(params[:employee])
-      redirect_to employees_path, notice: 'Employee was updated'
+      redirect_to root_path, notice: 'Employee was updated'
     end
   end
 end
